@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Student {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Integer> marks = new ArrayList<>();
+        ArrayList<String> grades = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+        sc.nextLine(); 
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("\nEnter student name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter marks (0-100): ");
+            int m = sc.nextInt();
+            sc.nextLine();
+
+            String grade;
+            if (m >= 90) grade = "A";
+            else if (m >= 75) grade = "B";
+            else if (m >= 60) grade = "C";
+            else if (m >= 40) grade = "D";
+            else grade = "F";
+
+            names.add(name);
+            marks.add(m);
+            grades.add(grade);
+        }
+
+        System.out.println("\nStudent Grade Report");
+        System.out.println("-------------------------------------");
+        System.out.printf("%-15s %-10s %-5s\n", "Name", "Marks", "Grade");
+        System.out.println("-------------------------------------");
+        for (int i = 0; i < n; i++) {
+            System.out.printf("%-15s %-10d %-5s\n", names.get(i), marks.get(i), grades.get(i));
+        }
+        System.out.println("-------------------------------------");
+
+        sc.close();
+    }
+}
